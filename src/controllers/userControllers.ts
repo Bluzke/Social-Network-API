@@ -77,18 +77,37 @@ export const updateUser = async (req: Request, res: Response) => {
     return;
   }
 
-//   POST to add a new friedn to a user's friend list
-export const addFriend = async (req: Request, res: Response) => {
-    try {
-        const user = await User.findOne({_id: req.params.userId})
-        const friend = await User.findOne({_id: req.params.friendId})
+// //   POST to add a new friedn to a user's friend list
+// export const addFriend = async (req: Request, res: Response) => {
+//     try {
+//         const user = await User.findOne({_id: req.params.userId})
+//         const friend = await User.findOne({_id: req.params.friendId})
 
-        if(!user || !friend) {
-            return res.status(404).json({message: ' No user or friend found'})
-        }
+//         if(!user || !friend) {
+//             return res.status(404).json({message: ' No user or friend found'})
+//         }
 
-        user.friends.push(friend)
-    } catch (error) {
-        
-    }
-}
+//         user.friends.push(friend)
+//         await user.save();
+
+//         res.json({ message: 'Friend added succesfully'})
+//     } catch (error) {
+//         res.status(500).json(error);
+//     }
+//     return;
+// }
+
+// // DELETE to remove a friend from a user's friend list
+// export const removeFriend = async (req: Request, res: Response) => {
+//     try {
+//         const user = await User.findOne({_id: req.params.userId});
+
+//         if (!user) {
+//             return res.status(404).json({ message: 'User not found'})
+//         }
+
+//         const friendIndex = user.friends.indexOf(friendId);
+
+//         user.friends.splice(friendIndex, 1)
+//     }
+// }

@@ -116,7 +116,7 @@ export const addReaction = async (req: Request, res: Response) => {
     }
 }
 
-export const removeThought = async (req: Request, res: Response) => {
+export const removeReaction = async (req: Request, res: Response) => {
     try {
         const thought = await Thought.findByIdAndUpdate(
             { _id: req.params.thoughtId},
